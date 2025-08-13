@@ -1,10 +1,10 @@
-# Template Repo
+# Event-Driven Pub/Sub with RabbitMQ
 
-This is a starter template for Python projects.
+This repository is designed as a hands-on learning resource for event-driven architecture, focusing on the publish/subscribe (pub/sub) pattern using RabbitMQ in Python.
 
-## Structure
+## Learning Goals
 
-- `src/`: Source code
-- `tests/`: Unit tests
-- `data/`: Data files
-- `logs/`: Log files
+- Understand the principles of event-driven architecture
+- Explore the pub/sub messaging pattern
+- Learn how to use RabbitMQ for message brokering
+- Practice building and testing Python applications with event-driven workflows
