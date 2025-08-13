@@ -26,6 +26,7 @@ def fetch_api_data():
         if response.status_code != 200:
             logger.error(f"Request {i}: Failed to fetch API data: {response.status_code}")
             continue
+        logger.info(f"Joke: {response.json().get('value')}")
         api_data.append(response.json())
     return api_data
 
