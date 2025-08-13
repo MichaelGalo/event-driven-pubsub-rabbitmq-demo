@@ -1,0 +1,19 @@
+services:
+  rabbitmq:
+    image: rabbitmq:latest # Uses the latest official RabbitMQ image with management plugin
+    hostname: rabbitmq_server
+    container_name: rabbitmq_container
+    ports:
+      - "5672:5672" # AMQP protocol port
+      - "15672:15672" # RabbitMQ Management UI port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/ # Persistent storage for RabbitMQ data
+      - rabbitmq_logs:/var/log/rabbitmq/ # Persistent storage for RabbitMQ logs
+    environment:
+      RABBITMQ_DEFAULT_USER: guest # Default username for management UI (change for production)
+      RABBITMQ_DEFAULT_PASS: guest # Default password for management UI (change for production)
+    restart: unless-stopped # Ensures the container restarts automatically unless stopped manually
+
+volumes:
+  rabbitmq_data:
+  rabbitmq_logs:
