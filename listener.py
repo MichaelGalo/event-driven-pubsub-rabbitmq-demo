@@ -51,7 +51,7 @@ class FileHandler(FileSystemEventHandler):
             if wait_for_file_ready(Path(event.src_path)):
                 logger.info(f"File is ready, publishing to RabbitMQ.")
                 with open(event.src_path, 'rb') as f:
-                    publish_message(f.read())
+                    publish_message(str(Path(event.src_path).name).encode())
 
 def fetch_api_data():
     api_data = []
