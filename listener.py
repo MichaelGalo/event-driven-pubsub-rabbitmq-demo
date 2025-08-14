@@ -9,6 +9,7 @@ import os
 from dotenv import load_dotenv
 import csv
 import pika
+import datetime
 
 load_dotenv()
 logger = setup_logging()
@@ -73,7 +74,8 @@ def write_to_csv(data, file_path):
             writer.writerow(row)
 
 def main():
-    new_hire_api_data = "new_hire.csv"
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    new_hire_api_data = f"new_hire_{timestamp}.csv"
     api_data = fetch_api_data()
     write_to_csv(api_data, listened_folder / new_hire_api_data)
 
