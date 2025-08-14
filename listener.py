@@ -48,9 +48,9 @@ class FileHandler(FileSystemEventHandler):
     def on_created(self, event):
         if not event.is_directory:
             logger.info(f"File that was transferred into: {event.src_path}")
-            logger.info(f"Waiting for file to be ready.")
+            logger.info("Waiting for file to be ready.")
             if wait_for_file_ready(Path(event.src_path)):
-                logger.info(f"File is ready, publishing to RabbitMQ.")
+                logger.info("File is ready, publishing to RabbitMQ.")
                 with open(event.src_path, 'rb') as f:
                     publish_message(str(Path(event.src_path).name).encode())
 
@@ -63,7 +63,7 @@ def fetch_api_data():
             continue
         response = response.json()
         api_data.append(response["data"][0])
-    logger.info(f"Data fetched successfully")
+    logger.info("Data fetched successfully")
     return api_data
 
 def write_to_csv(data, file_path):

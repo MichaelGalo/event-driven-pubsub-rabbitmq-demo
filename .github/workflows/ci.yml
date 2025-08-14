@@ -26,9 +26,9 @@ jobs:
 
     - name: Check code quality with ruff
       run: |
-        ruff check listener.py --fix
-        ruff check runner.py --fix
-        ruff check subscriber.py --fix
+        uv run ruff check listener.py --fix
+        uv run ruff check runner.py --fix
+        uv run ruff check subscriber.py --fix
 
     - name: Test with pytest
       run: |
