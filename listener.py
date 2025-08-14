@@ -55,13 +55,14 @@ class FileHandler(FileSystemEventHandler):
 
 def fetch_api_data():
     api_data = []
-    for i in range(10):
+    for i in range(1):
         response = requests.get(os.getenv("API_URL"))
         if response.status_code != 200:
             logger.error(f"Request {i}: Failed to fetch API data: {response.status_code}")
             continue
-        api_data.append(response.json())
-    logger.info(f"Jokes fetched successfully")
+        response = response.json()
+        api_data.append(response["data"][0])
+    logger.info(f"Data fetched successfully")
     return api_data
 
 def write_to_csv(data, file_path):
@@ -72,9 +73,9 @@ def write_to_csv(data, file_path):
             writer.writerow(row)
 
 def main():
-    chuck_norris_api_data = "chuck_norris_jokes.csv"
+    new_hire_api_data = "new_hire.csv"
     api_data = fetch_api_data()
-    write_to_csv(api_data, listened_folder / chuck_norris_api_data)
+    write_to_csv(api_data, listened_folder / new_hire_api_data)
 
     observer = Observer()
     event_handler = FileHandler()

@@ -4,8 +4,8 @@ import sys
 import signal
 
 SUBPROCESSES = [
-    "listener",
-    "subscriber"
+    "subscriber",
+    "listener"
 ]
 
 def launch_subprocesses():
