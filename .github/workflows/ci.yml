@@ -22,11 +22,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install uv
-        uv add --dev ruff
+        uv sync --dev
 
     - name: Check code quality with ruff
       run: |
-        ruff check listener.py runner.py subscriber.py --fix
+        ruff check listener.py --fix
+        ruff check runner.py --fix
+        ruff check subscriber.py --fix
 
     - name: Test with pytest
       run: |
