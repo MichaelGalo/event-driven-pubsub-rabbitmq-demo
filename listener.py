@@ -74,16 +74,18 @@ def write_to_csv(data, file_path):
             writer.writerow(row)
 
 def main():
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    new_hire_api_data = f"new_hire_{timestamp}.csv"
-    api_data = fetch_api_data()
-    write_to_csv(api_data, listened_folder / new_hire_api_data)
-
     observer = Observer()
     event_handler = FileHandler()
     observer.schedule(event_handler, path=listened_folder, recursive=False)
     observer.start()
     logger.info(f"Started watching directory: {listened_folder}")
+
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    new_hire_api_data = f"new_hire_{timestamp}.csv"
+    api_data = fetch_api_data()
+    write_to_csv(api_data, listened_folder / new_hire_api_data)
+
+
     try:
         while True:
             time.sleep(1)

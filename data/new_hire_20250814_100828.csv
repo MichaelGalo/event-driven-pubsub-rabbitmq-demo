@@ -1,0 +1,2 @@
+id,firstname,lastname,email,phone,birthday,gender,address,website,image
+1,Dessie,Mraz,murazik.destiney@altenwerth.com,+17252528966,1988-06-06,other,"{'id': 1, 'street': '359 Purdy Ridge', 'streetName': 'Huel Squares', 'buildingNumber': '50631', 'city': 'Maraberg', 'zipcode': '17516-1210', 'country': 'Aruba', 'country_code': 'AW', 'latitude': -55.989627, 'longitude': 178.897531}",http://sanford.net,http://placeimg.com/640/480/people
